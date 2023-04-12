@@ -15,13 +15,15 @@ import {AppFacade} from "./store/facade/app.facade";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ToDoModalComponent } from './components/to-do-modal/to-do-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { AddToDoModalComponent } from './components/add-to-do-modal/add-to-do-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
     PanelComponent,
     ToDoItemComponent,
     ToDoModalComponent,
+    AddToDoModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     EffectsModule.forRoot([AppEffects]),
     StoreDevtoolsModule.instrument(),
     NgbModule,
+    ReactiveFormsModule
 
   ],
   providers: [ToDoService, AppFacade],

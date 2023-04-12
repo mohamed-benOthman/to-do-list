@@ -1,8 +1,12 @@
 .panel-container{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 70%;
+  align-items: center;
+
+}
+
+.to-do-container{
+  width: 50%;
 }
 
 .panel-col{

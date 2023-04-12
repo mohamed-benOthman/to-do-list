@@ -18,4 +18,8 @@ export class ToDoService {
   updateToDoItem(item : ToDo){
     return this.httpClient.put(`${environment.baseUrl}toDoItems/${item.id}`, item)
   }
+
+  addToDoItem(item: ToDo){
+    return this.httpClient.post(`${environment.baseUrl}toDoItems`, item)
+  }
 }

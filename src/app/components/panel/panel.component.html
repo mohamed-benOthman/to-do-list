@@ -1,4 +1,5 @@
-
 <div class="panel-container">
-    <app-to-do-item *ngFor="let item of toDoList$ | async " [toDoItem]="item"></app-to-do-item>
+  <div *ngFor="let item of toDoList " class="to-do-container" >
+    <app-to-do-item [toDoItem]="item"></app-to-do-item>
+  </div>
 </div>
