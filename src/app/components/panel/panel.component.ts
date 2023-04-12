@@ -1,6 +1,6 @@
-import {Component, OnInit, Input, OnDestroy} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {ToDo} from "../../interfaces/ToDo";
-import {Observable, map, takeUntil} from "rxjs";
+import {Observable, map} from "rxjs";
 import {AppFacade} from "../../store/facade/app.facade";
 
 @Component({
@@ -10,18 +10,12 @@ import {AppFacade} from "../../store/facade/app.facade";
 })
 export class PanelComponent implements OnInit {
   @Input()  toDoList : ToDo[];
-  currentToDOList : ToDo[] = []
-  completedToDoList : ToDo[] = []
+  toDoList$ : Observable<ToDo[] >
   constructor(private appFacade : AppFacade) { }
 
   ngOnInit(): void {
-    this.appFacade.getToDoList().subscribe((items: ToDo[])=> {
-      this.completedToDoList = items.filter((item: ToDo)=>  item.completed)
-      this.currentToDOList = items.filter((item: ToDo)=> !item.completed)
-    })
+    this.toDoList$ = this.appFacade.getToDoList();
   }
-
-
 
 
 

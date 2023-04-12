@@ -17,6 +17,10 @@ server.get('/to-do-list', (req:any, res:any, next:any) => {
   }
 });
 
+
+
+
+
 server.use(router);
 server.listen(3000, () => {
   console.log('JSON Server is running');

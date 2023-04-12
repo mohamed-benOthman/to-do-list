@@ -14,4 +14,8 @@ export class ToDoService {
   getToDoList(){
     return this.httpClient.get(`${environment.baseUrl}to-do-list`)
   }
+
+  updateToDoItem(item : ToDo){
+    return this.httpClient.put(`${environment.baseUrl}toDoItems/${item.id}`, item)
+  }
 }

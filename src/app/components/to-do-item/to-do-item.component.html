@@ -1,3 +1,4 @@
 <div class="to-do-line">
   <h4>{{toDoItem.title}}</h4>
+  <input  type="checkbox" (change)="updateToDoItem($event)" [checked]="toDoItem.completed" class="form-control"  />
 </div>
