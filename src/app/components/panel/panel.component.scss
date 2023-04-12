@@ -1,0 +1,11 @@
+.panel-container{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.panel-col{
+  width: 50%;
+  padding-right: 2%;
+  padding-left: 2%;
+}
