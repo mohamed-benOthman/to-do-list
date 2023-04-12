@@ -18,6 +18,13 @@ export class AppFacade {
     return this.store.dispatch(AppActions.getToDoList())
   }
 
+  setSelectedToDo(toDo: ToDo){
+    return this.store.dispatch(AppActions.chooseSelectedToDo({selectedToDo: toDo}))
+  }
+
+  getSelectedToDo(): Observable<ToDo>{
+    return this.store.select(AppSelectors.selectSelectedToDo)
+  }
   getToDoList(): Observable<ToDo[]>{
     return this.store.select(AppSelectors.selectToDoList)
   }

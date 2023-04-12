@@ -15,4 +15,9 @@ export const getToDoListFailed = createAction(
   '[ToDoList] get to do list Failed',
 )
 
+export const chooseSelectedToDo = createAction(
+  '[ToDoList] choose Selected To Do',
+  props<{selectedToDo: ToDo}>()
+)
+
 

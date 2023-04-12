@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {ToDo} from "../../interfaces/ToDo";
 import {ToDoService} from "../../services/toDoService/to-do.service";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {ToDoModalComponent} from "../to-do-modal/to-do-modal.component";
+import {AppFacade} from "../../store/facade/app.facade";
 
 @Component({
   selector: 'app-to-do-item',
@@ -10,7 +13,10 @@ import {ToDoService} from "../../services/toDoService/to-do.service";
 export class ToDoItemComponent implements OnInit {
   @Input() toDoItem : ToDo ;
 
-  constructor(private toDoService : ToDoService) { }
+  constructor(private toDoService : ToDoService,
+              private modalService: NgbModal,
+              private appFacade: AppFacade
+              ) { }
 
   ngOnInit(): void {
   }
@@ -21,6 +27,11 @@ export class ToDoItemComponent implements OnInit {
       completed : event.target.checked
     }
     this.toDoService.updateToDoItem(toDoUpdated).subscribe(res=> console.log(res))
+  }
+
+  showDetails(){
+    this.appFacade.setSelectedToDo(this.toDoItem)
+    this.modalService.open(ToDoModalComponent)
   }
 
 

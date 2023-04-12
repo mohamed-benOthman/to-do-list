@@ -1,6 +1,7 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import { initialAppState, IApp } from '../app.interface';
-import { getToDoListSuccess} from '../actions/app.actions';
+import { getToDoListSuccess, chooseSelectedToDo} from '../actions/app.actions';
+import {ToDo} from "../../interfaces/ToDo";
 
 export const userFeatureKey = 'AppState';
 
@@ -10,6 +11,12 @@ export const reducer = createReducer(
     ...state,
     toDoList : toDoList
   })),
+  on(chooseSelectedToDo, (state, toDoItem:any)=> ({
+    ...state,
+    selectedToDoItem : toDoItem.selectedToDo
+  })),
+
+
 );
 
 export function AppReducer(state: IApp, action: Action): IApp {

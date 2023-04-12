@@ -13,12 +13,15 @@ import { EffectsModule } from '@ngrx/effects';
 import {AppEffects} from "./store/effects/app.effects";
 import {AppFacade} from "./store/facade/app.facade";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { ToDoModalComponent } from './components/to-do-modal/to-do-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
     PanelComponent,
     ToDoItemComponent,
+    ToDoModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +30,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([AppEffects]),
     StoreDevtoolsModule.instrument(),
+    NgbModule,
 
   ],
   providers: [ToDoService, AppFacade],

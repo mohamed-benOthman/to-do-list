@@ -8,3 +8,10 @@ export const selectToDoList = createSelector(
     return state.toDoList.toDoList
   }
 )
+
+export const selectSelectedToDo = createSelector(
+  appSelectors,
+  (state: any) => {
+    return state.selectedToDoItem
+  }
+)
