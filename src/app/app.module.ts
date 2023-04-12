@@ -7,11 +7,11 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store';
 import { PanelComponent } from './components/panel/panel.component';
 import { ToDoItemComponent } from './components/to-do-item/to-do-item.component';
-import {ToDoService} from "./services/toDoService/to-do.service";
-import {HttpClientModule} from "@angular/common/http";
+import { ToDoService } from './services/toDoService/to-do.service';
+import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
-import {AppEffects} from "./store/effects/app.effects";
-import {AppFacade} from "./store/facade/app.facade";
+import { AppEffects } from './store/effects/app.effects';
+import { AppFacade } from './store/facade/app.facade';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ToDoModalComponent } from './components/to-do-modal/to-do-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -33,10 +33,9 @@ import { AddToDoModalComponent } from './components/add-to-do-modal/add-to-do-mo
     EffectsModule.forRoot([AppEffects]),
     StoreDevtoolsModule.instrument(),
     NgbModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
   ],
   providers: [ToDoService, AppFacade],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

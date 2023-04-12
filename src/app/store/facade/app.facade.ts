@@ -1,32 +1,30 @@
-import {Injectable} from '@angular/core';
-import {Store} from '@ngrx/store';
-import * as AppActions from '../actions/app.actions'
-import * as AppSelectors from '../selectors/app.selectors'
-import {IAppState} from "../app.interface";
-import {Observable} from "rxjs";
-import {ToDo} from "../../interfaces/ToDo";
+import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
+import * as AppActions from '../actions/app.actions';
+import * as AppSelectors from '../selectors/app.selectors';
+import { IAppState } from '../app.interface';
+import { Observable } from 'rxjs';
+import { ToDo } from '../../interfaces/ToDo';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AppFacade {
+  constructor(private store: Store<IAppState>) {}
 
-  constructor(private store: Store<IAppState>) {
-
+  setToDoList() {
+    return this.store.dispatch(AppActions.getToDoList());
   }
 
-  setToDoList(){
-    return this.store.dispatch(AppActions.getToDoList())
+  setSelectedToDo(toDo: ToDo) {
+    return this.store.dispatch(
+      AppActions.chooseSelectedToDo({ selectedToDo: toDo })
+    );
   }
 
-  setSelectedToDo(toDo: ToDo){
-    return this.store.dispatch(AppActions.chooseSelectedToDo({selectedToDo: toDo}))
+  getSelectedToDo(): Observable<ToDo> {
+    return this.store.select(AppSelectors.selectSelectedToDo);
   }
-
-  getSelectedToDo(): Observable<ToDo>{
-    return this.store.select(AppSelectors.selectSelectedToDo)
+  getToDoList(): Observable<ToDo[]> {
+    return this.store.select(AppSelectors.selectToDoList);
   }
-  getToDoList(): Observable<ToDo[]>{
-    return this.store.select(AppSelectors.selectToDoList)
-  }
-
 }

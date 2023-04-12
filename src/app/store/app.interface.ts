@@ -1,8 +1,8 @@
-import {ToDo} from "../interfaces/ToDo";
+import { ToDo } from '../interfaces/ToDo';
 
 export interface IApp {
-   toDoList : ToDo[],
-   selectedToDoItem: ToDo
+  toDoList: ToDo[];
+  selectedToDoItem: ToDo;
 }
 
 export interface IAppState {
@@ -10,6 +10,6 @@ export interface IAppState {
 }
 
 export const initialAppState: IApp = {
-  toDoList :[],
-  selectedToDoItem: null
+  toDoList: [],
+  selectedToDoItem: null,
 };

@@ -1,17 +1,11 @@
-import {createFeatureSelector, createSelector} from "@ngrx/store";
-import {IAppState} from "../app.interface";
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { IAppState } from '../app.interface';
 
 const appSelectors = createFeatureSelector<IAppState>('AppState');
-export const selectToDoList = createSelector(
-  appSelectors,
-  (state: any) => {
-    return state.toDoList.toDoList
-  }
-)
+export const selectToDoList = createSelector(appSelectors, (state: any) => {
+  return state.toDoList.toDoList;
+});
 
-export const selectSelectedToDo = createSelector(
-  appSelectors,
-  (state: any) => {
-    return state.selectedToDoItem
-  }
-)
+export const selectSelectedToDo = createSelector(appSelectors, (state: any) => {
+  return state.selectedToDoItem;
+});
